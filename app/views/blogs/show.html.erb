@@ -1,0 +1,11 @@
+<% if @blog %>
+  <% if @categories %>
+    <% @categories.each do |category| %>
+    <%= category.name %>
+    <% end %>
+  <% end %>
+  <%= @blog.title %>
+  <%= @blog.created_date %>
+  <img src="<%= @blog.image %>" class="photo">
+  <%= @blog.body %>
+<% end %>
