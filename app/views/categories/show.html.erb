@@ -1,8 +1,15 @@
-<%= @category.name %>
-<% if @blogs %>
-  <% @blogs.each do |blog| %>
-    <img src="<%= blog.image %>" class="photo">
-    <%= blog.title %>
-    <%= blog.blurb %>
-  <% end %>
-<% end %>
+<section id="main-stage">
+  <article id="content">
+    <%= @category.name %>
+    <% if @blogs %>
+      <% @blogs.each do |blog| %>
+        <img src="<%= blog.image %>" class="photo">
+        <%= blog.title %>
+        <%= blog.blurb %>
+      <% end %>
+    <% end %>
+  </article>
+  <aside id="category-bar" class="flex-categories">
+    <%= render partial: 'nav/categories' %>
+  </aside>
+</section>

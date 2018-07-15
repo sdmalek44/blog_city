@@ -5,6 +5,10 @@ describe 'when user visits /blogs/#' do
     category = Category.create!(name: 'footwear')
     blog = category.blogs.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', blurb: 'shoesnstuff')
 
+    visit blogs_path
+
+    click_on blog.title
+
     visit blog_path(blog)
 
     expect(page).to have_content(blog.title)
