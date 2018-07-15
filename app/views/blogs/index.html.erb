@@ -1,5 +1,6 @@
-<section>
-  <article>
+<section id="main-stage">
+
+  <article id="content">
     <% @blogs.each do |blog| %>
     <img src="<%= blog.image %>" class="photo">
     <div class="">
@@ -14,4 +15,7 @@
     </div>
     <% end %>
   </article>
+  <aside id="category-bar" class="flex-categories">
+    <%= render partial: 'nav/categories' %>
+  </aside>
 </section>
