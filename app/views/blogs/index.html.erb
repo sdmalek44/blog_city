@@ -1,0 +1,11 @@
+<section>
+  <article>
+    <% @blogs.each do |blog| %>
+    <img src="<%= blog.image %>" class="photo">
+    <div class="">
+      <%= blog.title %>
+      <%= blog.blurb %>
+    </div>
+    <% end %>
+  </article>
+</section>
