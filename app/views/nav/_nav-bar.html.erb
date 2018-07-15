@@ -1,9 +1,9 @@
-  <nav>
+  <nav id="navigation">
     <% if current_user %>
-      <h1>Welcome, <%= current_user.username %>!</h1>
-      <%= link_to "Log Out", logout_path, method: :delete %>
+      <h1 class='flex-center' id="welcome">Welcome, <%= current_user.username %>!</h1>
+      <%= link_to "Log Out", logout_path, method: :delete, id: 'log-out', class: 'flex-center' %>
     <% else %>
-      <%= link_to "Sign Up", new_user_path %>
-      <%= link_to "Log In", login_path %>
+      <%= link_to "Sign Up", new_user_path, id: 'sign-up', class: 'flex-center' %>
+      <%= link_to "Log In", login_path, id: 'log-in', class: 'flex-center' %>
     <% end %>
   </nav>
