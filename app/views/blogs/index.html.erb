@@ -4,7 +4,7 @@
     <% @blogs.each do |blog| %>
     <img src="<%= blog.image %>" class="photo">
     <div class="">
-      <%= blog.title %>
+      <%= link_to blog.title, blog_path(blog) %>
       <%= blog.created_date %>
       <%= blog.blurb %>
       <% if blog.categories %>
