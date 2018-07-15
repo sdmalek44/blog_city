@@ -13,3 +13,81 @@
  *= require_tree .
  *= require_self
  */
+ html, body, div, span, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ abbr, address, cite, code,
+ del, dfn, em, img, ins, kbd, q, samp,
+ small, strong, sub, sup, var,
+ b, i,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, figcaption, figure,
+ footer, header, hgroup, menu, nav, section, summary,
+ time, mark, audio, video {
+     margin:0;
+     padding:0;
+     border:0;
+     outline:0;
+     font-size:100%;
+     vertical-align:baseline;
+     background:transparent;
+ }
+
+#navigation {
+  width: 100%;
+  height: 52px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: rgb(10, 10, 10);
+}
+
+#welcome {
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  font-family: 'Maitree', serif;
+  grid-column: 10 / 12;
+}
+
+#log-out {
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  font-family: 'Maitree', serif;
+  grid-column: 12;
+  border-left: 1px solid white;
+}
+
+#sign-up {
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  font-family: 'Maitree', serif;
+  grid-column: 11;
+  border-left: 1px solid white;
+}
+
+#log-in {
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  font-family: 'Maitree', serif;
+  grid-column: 12;
+  border-left: 1px solid white;
+}
+
+#go-back {
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  font-family: 'Maitree', serif;
+  grid-column: 12;
+  border-left: 1px solid white;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
