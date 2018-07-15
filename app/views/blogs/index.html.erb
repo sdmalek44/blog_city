@@ -6,8 +6,8 @@
       <%= blog.title %>
       <%= blog.blurb %>
       <% if blog.categories %>
-        <%= blog.categories.each do |category| %>
-        <%= link_to category.name, category_path(category) %>
+        <% blog.categories.each do |category| %>
+          <%= link_to category.name, category_path(category) %>
         <% end %>
       <% end %>
     </div>
