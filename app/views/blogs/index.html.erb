@@ -4,7 +4,13 @@
     <img src="<%= blog.image %>" class="photo">
     <div class="">
       <%= blog.title %>
+      <%= blog.created_date %>
       <%= blog.blurb %>
+      <% if blog.categories %>
+        <% blog.categories.each do |category| %>
+          <%= link_to category.name, category_path(category) %>
+        <% end %>
+      <% end %>
     </div>
     <% end %>
   </article>

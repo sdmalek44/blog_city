@@ -1,0 +1,8 @@
+<%= @category.name %>
+<% if @blogs %>
+  <% @blogs.each do |blog| %>
+    <img src="<%= blog.image %>" class="photo">
+    <%= blog.title %>
+    <%= blog.blurb %>
+  <% end %>
+<% end %>
