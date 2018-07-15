@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to blogs_path
     else
       render :new

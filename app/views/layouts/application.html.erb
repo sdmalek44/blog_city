@@ -9,7 +9,11 @@
   </head>
 
   <body>
-    <%= render partial: 'nav/nav-bar' %>
+    <% if params[:controller] == 'sessions' && params[:action] == 'new'%>
+      <%= render partial: 'nav/empty-nav' %>
+    <% else %>
+      <%= render partial: 'nav/nav-bar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
