@@ -12,4 +12,9 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    reset_session
+    redirect_to(blogs_path)
+  end
 end

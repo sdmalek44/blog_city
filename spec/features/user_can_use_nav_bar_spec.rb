@@ -32,4 +32,19 @@ describe 'when user uses the nav bar' do
     expect(page).to have_content("Log Out")
     expect(page).to have_content("Welcome, #{user.username}!")
   end
+  it 'can logout if user is logged in' do
+    user = User.create!(username: 'puppy47', password: 'taco', email: 'malek_stephen@yahoo.com')
+    visit blogs_path
+    click_on "Log In"
+    expect(current_path).to eq(login_path)
+    fill_in :username, with: 'puppy47'
+    fill_in :password, with: 'taco'
+    click_on "Log In"
+    expect(current_path).to eq(blogs_path)
+
+    click_on "Log Out"
+
+    expect(current_path).to eq(blogs_path)
+    expect(page).to have_content("Sign Up", "Log In")
+  end
 end
