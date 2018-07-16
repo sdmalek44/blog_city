@@ -32,4 +32,12 @@ describe 'visiting show page' do
 
     expect(page).to_not have_content("Delete")
   end
+  it 'non user cannot see delete button' do
+    category = Category.create!(name: 'footwear')
+    blog = category.blogs.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg')
+
+    visit blog_path(blog)
+
+    expect(page).to_not have_content("Delete")
+  end
 end

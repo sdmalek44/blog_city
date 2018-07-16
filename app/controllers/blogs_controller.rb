@@ -9,10 +9,4 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @categories = @blog.categories
   end
-
-  private
-
-  def blog_params
-    params.require(:blog).permit(:title, :body, :image)
-  end
 end
