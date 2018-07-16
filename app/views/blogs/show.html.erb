@@ -8,4 +8,7 @@
   <%= @blog.created_date %>
   <img src="<%= @blog.image %>" class="photo">
   <%= @blog.body %>
+  <% if current_admin? %>
+  <%= button_to "Delete", admin_blog_path(@blog), method: :delete %>
+  <% end %>
 <% end %>
