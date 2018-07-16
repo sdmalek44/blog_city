@@ -16,5 +16,12 @@ describe Blog, type: :model do
 
       expect(blog.created_date).to eq("January 13, 2015")
     end
+    it 'can create a blurb from body' do
+body =
+'aaaaaaajskjkjdkfjkjfkdjfjdfkjdkfjkdjfkdjfjdkjfkdjfkjdkfjdkfjkdjfkdjfkjdjfkdjfkdjfkjdkfjkdjfkdjfkjdkfjdkjfkdjfkjdkfjkdjfkdjfkjdfkdjfkjdddfffffffffffffffXXXXX'
+      blog = Blog.create!(title: 'shoes', body: body, image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', created_at: Date.new(2015, 1, 13) )
+
+      expect(blog.blurb).to eq("#{body[0, 150]}...")
+    end
   end
 end
