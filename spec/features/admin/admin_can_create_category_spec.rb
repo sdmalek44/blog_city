@@ -5,8 +5,8 @@ describe "user visits admin/categories/new" do
     xit 'admin can create a new blog and see the new info on show page' do
       user = User.create!(email: 'blah@bla.com', username: "fern@gully.com", password: "password", role: 1)
       category = Category.create!(name: 'sports')
-      blog1 = category.blogs.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', blurb: 'shoesnstuff')
-      blog2 = category.blogs.create!(title: 'dogs', body: 'doggy', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', blurb: 'doggggy')
+      blog1 = category.blogs.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg')
+      blog2 = category.blogs.create!(title: 'dogs', body: 'doggy', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg')
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit new_admin_category_path
