@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :blogs, only: [:index, :show, :create]
   namespace :admin do
     resources :blogs, only: [:new]
+    resources :categories, only: [:new]
   end
-  resources :categories, only: [:show]
+  resources :categories, only: [:show, :create]
   resources :users, only: [:new, :create]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
