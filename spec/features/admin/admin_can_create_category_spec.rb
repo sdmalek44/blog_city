@@ -4,8 +4,6 @@ describe "user visits admin/categories/new" do
   context 'as admin' do
     it 'admin can create a new blog and see the new info on show page' do
       user = User.create!(email: 'blah@bla.com', username: "fern@gully.com", password: "password", role: 1)
-      blog1 = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'http://www.via-victoria.com/wp-content/uploads/2017/06/IMG_6879-1024x768.jpg')
-      blog2 = Blog.create!(title: 'dogs', body: 'doggy', image: 'http://www.via-victoria.com/wp-content/uploads/2017/06/IMG_6879-1024x768.jpg')
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -17,6 +15,8 @@ describe "user visits admin/categories/new" do
       expect(current_path).to eq(category_path(1))
       expect(page).to have_content('category')
 
+      blog1 = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'http://www.via-victoria.com/wp-content/uploads/2017/06/IMG_6879-1024x768.jpg')
+      blog2 = Blog.create!(title: 'dogs', body: 'doggy', image: 'http://www.via-victoria.com/wp-content/uploads/2017/06/IMG_6879-1024x768.jpg')
       BlogCategory.create!(blog_id: blog1.id, category_id: 1)
       BlogCategory.create!(blog_id: blog2.id, category_id: 1)
 
