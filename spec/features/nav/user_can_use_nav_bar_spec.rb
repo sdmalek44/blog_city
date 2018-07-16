@@ -15,6 +15,20 @@ describe 'when user uses the nav bar' do
 
     expect(current_path).to eq(blogs_path)
   end
+  it 'they go back to sign up page if all attributes not passed' do
+    visit blogs_path
+
+    click_on "Sign Up"
+
+    expect(current_path).to eq(new_user_path)
+
+    fill_in :user_username, with: ''
+    fill_in :user_password, with: 'taco'
+    fill_in :user_email, with: 'malek_stephen@yahoo.com'
+    click_on "Create User"
+
+    expect(current_path).to eq(users_path)
+  end
   it 'can login if already have an account' do
     user = User.create!(username: 'puppy47', password: 'taco', email: 'malek_stephen@yahoo.com')
 
@@ -31,6 +45,21 @@ describe 'when user uses the nav bar' do
     expect(current_path).to eq(blogs_path)
     expect(page).to have_content("Log Out")
     expect(page).to have_content("Welcome, #{user.username}!")
+  end
+  it 'goes back to login page if all attributes not passed in' do
+    user = User.create!(username: 'puppy47', password: 'taco', email: 'malek_stephen@yahoo.com')
+
+    visit blogs_path
+
+    click_on "Log In"
+    expect(current_path).to eq(login_path)
+
+    fill_in :username, with: ''
+    fill_in :password, with: 'taco'
+
+    click_on "Log In"
+
+    expect(current_path).to eq(login_path)
   end
   it 'can logout if user is logged in' do
     user = User.create!(username: 'puppy47', password: 'taco', email: 'malek_stephen@yahoo.com')
