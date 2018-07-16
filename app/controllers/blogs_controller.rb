@@ -10,15 +10,9 @@ class BlogsController < ApplicationController
     @categories = @blog.categories
   end
 
-  def create
-    blog = Blog.create(blog_params)
-    blog.create_relationships(params[:blog][:categories])
-    redirect_to blog_path(blog)
-  end
-
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :blurb, :body, :image)
+    params.require(:blog).permit(:title, :body, :image)
   end
 end
