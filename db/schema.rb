@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20180715195038) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
-    t.text "blurb"
     t.text "body"
     t.string "image"
     t.datetime "created_at", null: false

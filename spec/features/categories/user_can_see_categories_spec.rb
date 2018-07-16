@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'when user visits /blogs' do
   it 'can see a list of all the blogs' do
-    blog = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', blurb: 'shoesnstuff')
+    blog = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg')
     category1 = blog.categories.create!(name: 'sports')
     category2 = blog.categories.create!(name: 'lifestyle')
 
