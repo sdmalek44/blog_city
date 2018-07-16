@@ -13,6 +13,12 @@ class Admin::BlogsController < Admin::BaseController
     end
   end
 
+  def destroy
+    Blog.destroy(params[:id])
+
+    redirect_to blogs_path
+  end
+
   private
 
   def blog_params

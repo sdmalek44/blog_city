@@ -1,6 +1,6 @@
 class Blog < ApplicationRecord
   validates_presence_of :title, :body, :image
-  has_many :blog_categories
+  has_many :blog_categories, dependent: :destroy
   has_many :categories, through: :blog_categories
 
   def created_date
@@ -8,7 +8,9 @@ class Blog < ApplicationRecord
   end
 
   def create_relationships(category_ids)
-    category_ids.each {|cat_id| BlogCategory.create(blog_id: id, category_id: cat_id.to_i) }
+    category_ids.map! {|cat_id| cat_id.to_i}
+    valid_categories = Category.where(id: category_ids)
+    valid_categories.each { |category| BlogCategory.create(blog_id: id, category_id: category.id) }
   end
 
   def blurb

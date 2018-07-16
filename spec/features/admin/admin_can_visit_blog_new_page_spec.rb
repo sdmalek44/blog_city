@@ -35,11 +35,13 @@ describe "user visits admin/blogs/new" do
       fill_in :blog_title, with: 'title'
       fill_in :blog_body, with: 'body'
       fill_in :blog_image, with: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg'
+
       click_on "Create Blog"
 
-      expect(current_path).to eq(blog_path(1))
+      expect(current_path).to eq(blog_path(Blog.last))
       expect(page).to have_content('title')
       expect(page).to have_content('body')
+
       expect(page).to have_content(cat1.name)
       expect(page).to have_content(cat2.name)
     end
