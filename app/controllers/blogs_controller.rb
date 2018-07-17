@@ -10,6 +10,5 @@ class BlogsController < ApplicationController
     @categories = @blog.categories
     @comments = @blog.comments
     @comment = Comment.new
-    @user_id = session[:user_id] if session[:user_id]
   end
 end
