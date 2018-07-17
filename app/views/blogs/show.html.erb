@@ -19,7 +19,12 @@
     <% @comments.each do |comment| %>
     <div class="">
       <%= comment.user.username %>
+      <%= comment.created_time %>
       <%= comment.body %>
+      <% if (comment.user == current_user) || current_admin? %>
+        <%= button_to "Delete", blog_comment_path(@blog, comment), method: :delete %>
+      <% end %>
+      <%=  %>
     </div>
     <% end %>
   <% end %>
