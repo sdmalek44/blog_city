@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'blogs#index'
   resources :blogs, only: [:index, :show] do
     resources :comments, only: [:create, :destroy, :edit, :update]
+    namespace :default do
+      resources :comments, only: [:create, :destroy, :edit, :update]
+    end
   end
   namespace :admin do
     resources :blogs, only: [:new, :create, :destroy, :edit, :update]

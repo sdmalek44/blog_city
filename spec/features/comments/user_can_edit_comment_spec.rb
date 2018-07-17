@@ -16,7 +16,7 @@ describe 'when user visits /blog/#' do
       expect(page).to have_button("Edit Comment")
       click_on "Edit Comment"
 
-      expect(current_path).to eq(edit_blog_comment_path(blog, comment1))
+      expect(current_path).to eq(edit_blog_default_comment_path(blog, comment1))
       updated = 'updated comment'
 
       fill_in :comment_body, with: updated

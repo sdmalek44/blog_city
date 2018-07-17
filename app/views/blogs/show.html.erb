@@ -22,8 +22,8 @@
       <%= comment.created_time %>
       <%= comment.body %>
       <% if (comment.user == current_user) || current_admin? %>
-        <%= button_to "Delete Comment", blog_comment_path(@blog, comment), method: :delete %>
-        <%= button_to "Edit Comment", edit_blog_comment_path(@blog, comment), method: :get %>
+        <%= button_to "Delete Comment", blog_default_comment_path(@blog, comment), method: :delete %>
+        <%= button_to "Edit Comment", edit_blog_default_comment_path(@blog, comment), method: :get %>
       <% end %>
     </div>
     <% end %>
