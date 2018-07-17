@@ -19,6 +19,10 @@ class Admin::BlogsController < Admin::BaseController
     redirect_to blogs_path
   end
 
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
   private
 
   def blog_params
