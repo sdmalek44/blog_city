@@ -1,6 +1,9 @@
 <section id="main-stage">
   <article id="content">
     <%= @category.name %>
+    <% if current_admin? %>
+    <%= button_to "Delete", admin_category_path(@category), method: :delete %>
+    <% end %>
     <% if @blogs %>
       <% @blogs.each do |blog| %>
         <img src="<%= blog.image %>" class="photo">
