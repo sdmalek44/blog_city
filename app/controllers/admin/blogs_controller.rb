@@ -19,6 +19,20 @@ class Admin::BlogsController < Admin::BaseController
     redirect_to blogs_path
   end
 
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
+  def update
+    @blog = Blog.update(params[:id], blog_params)
+    if @blog.save
+      @blog.create_relationships(params[:blog][:categories])
+      redirect_to blog_path(@blog)
+    else
+      render '/admin/blogs/new'
+    end
+  end
+
   private
 
   def blog_params

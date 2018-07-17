@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'blogs#index'
   resources :blogs, only: [:index, :show]
   namespace :admin do
-    resources :blogs, only: [:new, :create, :destroy]
-    resources :categories, only: [:new, :create]
+    resources :blogs, only: [:new, :create, :destroy, :edit, :update]
+    resources :categories, only: [:new, :create, :destroy]
   end
   resources :categories, only: [:show]
   resources :users, only: [:new, :create]

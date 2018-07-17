@@ -10,5 +10,6 @@
   <%= @blog.body %>
   <% if current_admin? %>
   <%= button_to "Delete", admin_blog_path(@blog), method: :delete %>
+  <%= button_to "Edit", edit_admin_blog_path(@blog), method: :get %>
   <% end %>
 <% end %>

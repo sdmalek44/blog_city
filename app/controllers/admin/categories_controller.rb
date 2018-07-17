@@ -12,6 +12,11 @@ class Admin::CategoriesController < Admin::BaseController
     end
   end
 
+  def destroy
+    Category.destroy(params[:id])
+    redirect_to blogs_path
+  end
+
   private
 
   def category_params

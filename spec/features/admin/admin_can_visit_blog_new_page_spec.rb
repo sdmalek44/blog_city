@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user visits admin/blogs/new" do
   context 'ad admin' do
-    it 'allows admin to see all categories' do
+    it 'allows admin to see category create page' do
       admin = User.create(email: 'blah@bla.com', username: "penelope",
                   password: "boom",
                   role: 1)
@@ -12,7 +12,7 @@ describe "user visits admin/blogs/new" do
 
       expect(page).to have_content("Admin Create Blog")
     end
-    it 'does not allow default user to see admin categories index' do
+    it 'does not allow default user to see admin new category page' do
       user = User.create(email: 'blah@bla.com', username: "fern@gully.com", password: "password", role: 0)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
