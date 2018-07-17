@@ -12,6 +12,21 @@ class CommentsController < ApplicationController
     redirect_to blog_path(@blog)
   end
 
+  def edit
+    @blog = Blog.find(params[:blog_id])
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @blog = Blog.find(params[:blog_id])
+    @comment = Comment.update(params[:id], comment_params)
+    if @comment.save
+      redirect_to blog_path(@blog)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def comment_params
