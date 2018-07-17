@@ -1,6 +1,6 @@
 <%= form_for [@blog, :default, @comment] do |f| %>
-  <%= hidden_field_tag 'comment[user_id]', current_user.id %>
-  <%= hidden_field_tag 'comment[blog_id]', @blog.id %>
+  <%= hidden_field_tag 'comment[user_id]', @comment.user_id %>
+  <%= hidden_field_tag 'comment[blog_id]', @comment.blog_id %>
   <%= f.label :body, "Your Comment" %>
   <%= f.text_area :body %>
   <%= f.submit "Update Comment"%>
