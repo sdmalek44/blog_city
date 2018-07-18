@@ -1,4 +1,46 @@
 .photo {
-  width: 200px;
-  height: auto;
+  display: block;
+  height: 100%;
+}
+
+.blog-box {
+  height: 230px;
+  border-bottom: 1px solid gray;
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.blurb-box {
+  width: 52%;
+}
+
+.fill-block {
+  width: 60%;
+}
+
+.destyle-link {
+  margin-top: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+
+.block {
+  display: block;
+}
+
+.blurb {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.category-and-date {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.no-style {
+  text-decoration: none;
+  color: gray;
 }

@@ -1,21 +1,38 @@
+
 <section id="main-stage">
 
-  <article id="content">
-    <% @blogs.each do |blog| %>
-    <img src="<%= blog.image %>" class="photo">
-    <div class="">
-      <%= link_to blog.title, blog_path(blog) %>
-      <%= blog.created_date %>
-      <%= blog.blurb %>
-      <% if blog.categories %>
-        <% blog.categories.each do |category| %>
-          <%= link_to category.name, category_path(category) %>
-        <% end %>
+  <header id="title-header">
+    <h1 id="title">VIA VICTORIA</h1>
+    <h3 id="sub-title">LIFESTYLE BLOGGER</h3>
+  </header>
+
+  <section id="all-content">
+    <article id="content">
+
+      <% @blogs.each do |blog| %>
+      <div class="blog-box">
+        <a href="<%= blog_path(blog) %>" class="fill-block"><img src="<%= blog.image %>" class="photo"></a>
+        <div class="blurb-box">
+          <%= link_to blog.title, blog_path(blog), class: 'block destyle-link'%>
+          <div class="blurb">
+            heyyall<%= blog.blurb %>
+          </div>
+          <div class="category-and-date">
+            <% unless blog.categories.empty? %>
+                <% blog.categories.each do |category| %>
+                  <%= link_to category.name, category_path(category), class: 'no-style' %>
+                <% end %>
+            <% end %>
+            <span class="no-style"> / <%= blog.created_date %></span>
+          </div>
+        </div>
+      </div>
       <% end %>
-    </div>
-    <% end %>
-  </article>
-  <aside id="category-bar" class="flex-categories">
-    <%= render partial: 'nav/categories' %>
-  </aside>
+
+    </article>
+    <aside id="category-bar" class="flex-categories">
+      <%= render partial: 'nav/categories' %>
+    </aside>
+  </section>
+
 </section>
