@@ -14,13 +14,21 @@
         <% end %>
       </div>
       <% if @blogs %>
-        <% @blogs.each do |blog| %>
+        <% @blogs.descend.each do |blog| %>
           <div class="blog-box">
             <a href="<%= blog_path(blog) %>" class="fill-block"><img src="<%= blog.image %>" class="photo"></a>
             <div class="blurb-box">
               <%= link_to blog.title.titleize, blog_path(blog), class: 'block destyle-link'%>
               <div class="blurb">
                 <%= blog.blurb %>
+              </div>
+              <div class="category-and-date">
+                <% unless blog.categories.empty? %>
+                    <% blog.categories.each do |category| %>
+                      <%= link_to category.name, category_path(category), class: 'no-style' %>
+                    <% end %>
+                <% end %>
+                <span class="no-style"> / <%= blog.created_date %></span>
               </div>
             </div>
           </div>

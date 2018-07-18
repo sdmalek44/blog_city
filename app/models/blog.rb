@@ -17,4 +17,8 @@ class Blog < ApplicationRecord
   def blurb
     "#{body[0, 150]}..."
   end
+
+  def self.descend
+    order(created_at: :desc)
+  end
 end
