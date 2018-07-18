@@ -11,7 +11,7 @@ describe 'when user uses the nav bar' do
     fill_in :user_username, with: 'puppy47'
     fill_in :user_password, with: 'taco'
     fill_in :user_email, with: 'malek_stephen@yahoo.com'
-    click_on "Create User"
+    click_button "Sign Up"
 
     expect(current_path).to eq(blogs_path)
   end
@@ -25,7 +25,7 @@ describe 'when user uses the nav bar' do
     fill_in :user_username, with: ''
     fill_in :user_password, with: 'taco'
     fill_in :user_email, with: 'malek_stephen@yahoo.com'
-    click_on "Create User"
+    click_button "Sign Up"
 
     expect(current_path).to eq(users_path)
   end
@@ -40,7 +40,7 @@ describe 'when user uses the nav bar' do
     fill_in :username, with: 'puppy47'
     fill_in :password, with: 'taco'
 
-    click_on "Log In"
+    click_button "Log In"
 
     expect(current_path).to eq(blogs_path)
     expect(page).to have_content("Log Out")
@@ -57,7 +57,7 @@ describe 'when user uses the nav bar' do
     fill_in :username, with: ''
     fill_in :password, with: 'taco'
 
-    click_on "Log In"
+    click_button "Log In"
 
     expect(current_path).to eq(login_path)
   end
@@ -68,7 +68,7 @@ describe 'when user uses the nav bar' do
     expect(current_path).to eq(login_path)
     fill_in :username, with: 'puppy47'
     fill_in :password, with: 'taco'
-    click_on "Log In"
+    click_button "Log In"
     expect(current_path).to eq(blogs_path)
 
     click_on "Log Out"

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @category_bar = Category.all
   end
 
   def create
