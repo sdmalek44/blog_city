@@ -1,0 +1,92 @@
+.show-photo {
+  width: 100%;
+}
+
+.space-tb {
+  font-style: italic;
+}
+
+.space-after {
+  padding-right: 5px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+.font-11 {
+  font-size: 11px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-45 {
+  font-size: 45px;
+}
+
+.bottom-10 {
+  margin-bottom: 10px
+}
+
+.body-box {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.comments-box {
+  width: 100%;
+}
+
+.comment-box {
+  width: 100%;
+  padding: 10px;
+  padding-right: 0px;
+  border-bottom: 1px dotted gray;
+}
+
+.bold {
+  text-decoration: underline;
+}
+
+.comment-form {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment-label {
+  align-self: flex-start;
+}
+
+.comment-text {
+  width: 98%;
+  height: 100px;
+}
+
+.comment-button {
+  align-self: flex-start;
+  margin-left: 5px;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: rgb(10, 10, 10);
+  color: white;
+  width: 300px;
+  height: 50px;
+}
+
+.underline {
+  text-decoration: underline;
+}

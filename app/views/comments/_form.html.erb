@@ -1,9 +1,11 @@
 <% if current_user %>
-  <%= form_for [@blog, :default, @comment] do |f| %>
-    <%= hidden_field_tag 'comment[user_id]', current_user.id %>
-    <%= hidden_field_tag 'comment[blog_id]', @blog.id %>
-    <%= f.label :body, "Your Comment" %>
-    <%= f.text_area :body %>
-    <%= f.submit "Submit Comment"%>
-  <% end %>
+  <div class="">
+    <%= form_for [@blog, :default, @comment], html: {class: 'comment-form'} do |f| %>
+      <h1 class="comment-label bottom-10">LEAVE A REPLY</h1>
+      <%= hidden_field_tag 'comment[user_id]', current_user.id %>
+      <%= hidden_field_tag 'comment[blog_id]', @blog.id %>
+      <%= f.text_area :body, class: 'comment-text' %>
+      <%= f.submit "POST COMMENT", class: 'comment-button'%>
+    <% end %>
+  </div>
 <% end %>

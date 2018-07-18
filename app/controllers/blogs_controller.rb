@@ -10,5 +10,6 @@ class BlogsController < ApplicationController
     @categories = @blog.categories
     @comments = @blog.comments
     @comment = Comment.new
+    @category_bar = Category.all
   end
 end

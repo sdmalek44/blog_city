@@ -1,33 +1,58 @@
-<% if @blog %>
-  <% if @categories %>
-    <% @categories.each do |category| %>
-    <%= link_to category.name, category_path(category) %>
-    <% end %>
-  <% end %>
+<section id="main-stage">
 
-  <%= @blog.title %>
-  <%= @blog.created_date %>
-  <img src="<%= @blog.image %>" class="photo">
-  <%= @blog.body %>
+  <header id="title-header">
+    <h1 id="title">VIA VICTORIA</h1>
+    <h3 id="sub-title">LIFESTYLE BLOGGER</h3>
+  </header>
 
-  <% if current_admin? %>
-  <%= button_to "Delete", admin_blog_path(@blog), method: :delete %>
-  <%= button_to "Edit", edit_admin_blog_path(@blog), method: :get %>
-  <% end %>
+  <section id="all-content">
+    <article id="content">
+      <section class="flex-column">
+      <div class="space-tb font-15">
+        <% if @categories %>
+          <% @categories.each do |category| %>
+            <%= link_to category.name, category_path(category), class: 'no-style space-after'%>
+          <% end %>
+        <% end %>
+      </div>
 
-  <% if @comments %>
-    <% @comments.each do |comment| %>
-    <div class="">
-      <%= comment.user.username %>
-      <%= comment.created_time %>
-      <%= comment.body %>
-      <% if (comment.user == current_user) || current_admin? %>
-        <%= button_to "Delete Comment", blog_default_comment_path(@blog, comment), method: :delete %>
-        <%= button_to "Edit Comment", edit_blog_default_comment_path(@blog, comment), method: :get %>
-      <% end %>
-    </div>
-    <% end %>
-  <% end %>
+        <h1 class="font-45"><%= @blog.title %></h1>
+        <p class="no-style font-15 bottom-10"><%= @blog.created_date %><p>
+        </section>
+        <img src="<%= @blog.image %>" class="show-photo">
+        <section class="flex-column">
 
-  <%= render partial: 'comments/form' %>
-<% end %>
+          <div class="body-box"><%= @blog.body %></div>
+
+          <% if current_admin? %>
+          <%= button_to "Delete", admin_blog_path(@blog), method: :delete %>
+          <%= button_to "Edit", edit_admin_blog_path(@blog), method: :get %>
+          <% end %>
+
+            <% if @comments %>
+              <h1 class="underline"><%= @comments.length %> comments</h1>
+              <div class="comments-box">
+
+                <% @comments.each do |comment| %>
+                  <div class="comment-box">
+                    <div class="bold"><%= comment.user.username %></div>
+                    <div class="bottom-10 font-13"><%= comment.body %></div>
+                    <div class="no-style font-11 bottom-10"><%= comment.created_time %></div>
+                    <% if (comment.user == current_user) || current_admin? %>
+                      <%= button_to "Delete Comment", blog_default_comment_path(@blog, comment), method: :delete %>
+                      <%= button_to "Edit Comment", edit_blog_default_comment_path(@blog, comment), method: :get %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+        </section>
+
+        <%= render partial: 'comments/form' %>
+
+    </article>
+    <aside id="category-bar" class="flex-categories">
+      <%= render partial: 'nav/categories' %>
+    </aside>
+  </section>
+</section>

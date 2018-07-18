@@ -14,7 +14,7 @@ describe 'user visits blog show page' do
     comment = 'this be a comment'
 
     fill_in :comment_body, with: comment
-    click_on "Submit Comment"
+    click_on "POST COMMENT"
 
     expect(page).to have_content(comment)
   end
@@ -31,7 +31,7 @@ describe 'user visits blog show page' do
     comment2 = blog.comments.create!(body: 'heyhey', user_id: user2.id)
 
     visit blog_path(blog)
-    
+
     expect(page).to have_content(comment1.body, comment1.user.username)
     expect(page).to have_content(comment2.body, comment2.user.username)
   end
