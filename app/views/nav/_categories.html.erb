@@ -1,6 +1,9 @@
 <% if @category_bar %>
   <h3 class="category-head">Categories</h3>
   <% @category_bar.each do |category| %>
-  <a class="category-box" href="/categories/<%= category.id %>"><div class="fill-box flex-center"><%= category.name %></div></a>
+  <a class="category-box" href="/categories/<%= category.id %>"><div class="fill-box flex-center"><%= category.name.upcase %></div></a>
   <% end %>
+<% end %>
+<% if current_admin? %>
+  <%= button_to "Create New Category", new_admin_category_path, method: :get, class: 'hidden-button' %>
 <% end %>

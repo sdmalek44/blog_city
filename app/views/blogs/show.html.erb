@@ -16,7 +16,7 @@
         <% end %>
       </div>
 
-        <h1 class="font-45"><%= @blog.title %></h1>
+        <h1 class="font-45"><%= @blog.title.titleize %></h1>
         <p class="no-style font-15 bottom-10"><%= @blog.created_date %><p>
         </section>
         <img src="<%= @blog.image %>" class="show-photo">
@@ -25,8 +25,10 @@
           <div class="body-box"><%= @blog.body %></div>
 
           <% if current_admin? %>
-          <%= button_to "Delete", admin_blog_path(@blog), method: :delete %>
-          <%= button_to "Edit", edit_admin_blog_path(@blog), method: :get %>
+          <div class="flex-center">
+            <%= button_to "Edit", edit_admin_blog_path(@blog), method: :get, class: 'hidden-button' %>
+            <%= button_to "Delete", admin_blog_path(@blog), method: :delete, class: 'hidden-button' %>
+          </div>
           <% end %>
 
             <% if @comments %>
@@ -39,8 +41,10 @@
                     <div class="bottom-10 font-13"><%= comment.body %></div>
                     <div class="no-style font-11 bottom-10"><%= comment.created_time %></div>
                     <% if (comment.user == current_user) || current_admin? %>
-                      <%= button_to "Delete Comment", blog_default_comment_path(@blog, comment), method: :delete %>
-                      <%= button_to "Edit Comment", edit_blog_default_comment_path(@blog, comment), method: :get %>
+                    <div class="flex-start">
+                      <%= button_to "Edit Comment", edit_blog_default_comment_path(@blog, comment), method: :get, class: 'hidden-button' %>
+                      <%= button_to "Delete Comment", blog_default_comment_path(@blog, comment), method: :delete, class: 'hidden-button' %>
+                    </div>
                     <% end %>
                   </div>
                 <% end %>

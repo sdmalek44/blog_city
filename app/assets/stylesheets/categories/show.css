@@ -1,0 +1,12 @@
+.cat-title {
+  height: 80px;
+  margin-bottom: 20px;
+  background-color: rgb(246, 246, 246);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font-30 {
+  font-size: 30px;
+}
