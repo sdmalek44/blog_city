@@ -10,7 +10,7 @@ describe "user visits admin/blogs/new" do
 
       visit new_admin_blog_path
 
-      expect(page).to have_content("Admin Create Blog")
+      expect(page).to have_content("Create New Blog")
     end
     it 'does not allow default user to see admin new category page' do
       user = User.create(email: 'blah@bla.com', username: "fern@gully.com", password: "password", role: 0)
@@ -19,7 +19,7 @@ describe "user visits admin/blogs/new" do
 
       visit new_admin_blog_path
 
-      expect(page).to_not have_content("Admin Create Blog")
+      expect(page).to_not have_content("Create New Blog")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
     it 'admin can create a new blog and see the new info on show page' do
@@ -36,7 +36,7 @@ describe "user visits admin/blogs/new" do
       fill_in :blog_body, with: 'body'
       fill_in :blog_image, with: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg'
 
-      click_on "Create Blog"
+      click_on "CREATE BLOG"
 
       expect(current_path).to eq(blog_path(Blog.last))
       expect(page).to have_content('Title')
@@ -58,7 +58,7 @@ describe "user visits admin/blogs/new" do
       fill_in :blog_body, with: 'body'
       fill_in :blog_image, with: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg'
 
-      click_on "Create Blog"
+        click_on "CREATE BLOG"
 
       expect(current_path).to eq(admin_blogs_path)
     end

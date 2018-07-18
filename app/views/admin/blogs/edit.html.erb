@@ -8,7 +8,7 @@
 
   <section id="all-content">
     <article id="content">
-      <h1 class="log-in-title font-30">Create New Blog</h1>
+      <h1 class="log-in-title font-30">Edit Blog</h1>
       <%= form_for [:admin, @blog], html: {class: 'login-form'} do |f| %>
         <div class="inner-log-wide">
           <h1 class="login-label">Category</h1>
@@ -27,7 +27,7 @@
           <h3 class="login-label top-marg-20"><%= f.label :image %></h3>
           <%= f.text_field :image, class: 'login-text'%>
 
-          <%= f.submit "CREATE BLOG", class: 'comment-button login-button font-15' %>
+          <%= f.submit "UPDATE BLOG", class: 'comment-button login-button font-15' %>
         </div>
       <% end %>
     </article>
