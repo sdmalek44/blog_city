@@ -1,9 +1,22 @@
+
+
+
+<div class="about-me">
+  <span class="t-b-10 underline">About Me</span>
+  <img class="about-photo t-b-10" src="http://www.via-victoria.com/wp-content/uploads/2017/03/porkbellybonbons_3.jpg" alt="picture">
+  <p class="bolded">VICTORIA FOX-COLLIS</p>
+  <span class="about-text t-b-10">Hi I'm Victoria, the average, goofy, popcorn obsessed, smartass (really though), life loving, fun loving, young woman behind this blog.</span>
+</div>
 <% if @category_bar %>
   <h3 class="category-head">Categories</h3>
-  <% @category_bar.each do |category| %>
-  <a class="category-box" href="/categories/<%= category.id %>"><div class="fill-box flex-center"><%= category.name.upcase %></div></a>
+  <% if current_admin? %>
+    <%= button_to "Create New Category", new_admin_category_path, method: :get, class: 'hidden-button' %>
   <% end %>
-<% end %>
-<% if current_admin? %>
-  <%= button_to "Create New Category", new_admin_category_path, method: :get, class: 'hidden-button' %>
+  <% @category_bar.each do |category| %>
+  <a style="background-image: url('<%= category.image %>'); background-size: cover;" class="category-box flex-it" href="/categories/<%= category.id %>">
+    <span class="cat-text-box">
+      <%= category.name.upcase %>
+    </span>
+  </a>
+  <% end %>
 <% end %>
