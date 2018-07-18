@@ -1,9 +1,32 @@
-<%= form_for @user do |f| %>
-<%= f.label :username%>
-<%= f.text_field :username %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.submit %>
-<% end %>
+
+<section id="main-stage">
+
+  <header id="title-header">
+    <h1 id="title">VIA VICTORIA</h1>
+    <h3 id="sub-title">LIFESTYLE BLOGGER</h3>
+  </header>
+
+  <section id="all-content">
+    <article id="content">
+      <h1 class="log-in-title font-30">Please Sign Up</h1>
+      <%= form_for @user, html: {class: 'login-form'} do |f| %>
+        <div class="inner-log-form">
+
+          <h3 class="login-label"><%= f.label :username %></h3>
+          <%= f.text_field :username, class: 'login-text'%>
+
+          <h3 class="login-label"><%= f.label :email%></h3>
+          <%= f.email_field :email, class: 'login-text' %>
+
+          <h3 class="login-label"><%= f.label :password %></h3>
+          <%= f.password_field :password, class: 'login-text'%>
+
+          <%= f.submit "Sign Up", class: 'comment-button login-button font-15' %>
+        </div>
+      <% end %>
+    </article>
+    <aside id="category-bar" class="flex-categories">
+      <%= render partial: 'nav/categories' %>
+    </aside>
+  </section>
+</section>

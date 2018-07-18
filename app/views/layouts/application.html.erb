@@ -10,13 +10,9 @@
   </head>
 
   <body>
-    <% if params[:controller] == 'sessions' && params[:action] == 'new'%>
-      <%= render partial: 'nav/empty-nav' %>
-    <% else %>
-      <%= render partial: 'nav/nav-bar' %>
-    <% end %>
+    <%= render partial: 'nav/nav-bar' %>
     <section id="meat-n-bones">
       <%= yield %>
-    </section>
+    </section> 
   </body>
 </html>

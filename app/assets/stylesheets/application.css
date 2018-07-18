@@ -102,8 +102,9 @@
   text-decoration: none;
   color: white;
   font-family: georgia;
-  grid-column: 12;
+  grid-column: 1;
   border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .flex-center {

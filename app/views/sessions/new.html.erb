@@ -1,7 +1,30 @@
-<%= form_tag login_path do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password%>
-  <%= submit_tag "Log In" %>
-<% end %>
+<section id="main-stage">
+
+  <header id="title-header">
+    <h1 id="title">VIA VICTORIA</h1>
+    <h3 id="sub-title">LIFESTYLE BLOGGER</h3>
+  </header>
+
+  <section id="all-content">
+    <article id="content">
+      <h1 class="log-in-title font-30">Please Log In</h1>
+      <%= form_tag login_path, class: 'login-form' do %>
+      <div class="inner-log-form">
+
+        <h3 class="login-label"><%= label_tag :username %></h3>
+
+        <%= text_field_tag :username, "", class: 'login-text'%>
+
+        <h3 class="login-label"><%= label_tag :password %></h3>
+
+        <%= password_field_tag :password, "", class: 'login-text'%>
+
+        <%= submit_tag "Log In", class: 'comment-button login-button font-15' %>
+      </div>
+      <% end %>
+    </article>
+    <aside id="category-bar" class="flex-categories">
+      <%= render partial: 'nav/categories' %>
+    </aside>
+  </section>
+</section>
