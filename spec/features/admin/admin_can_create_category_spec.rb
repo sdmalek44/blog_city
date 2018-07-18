@@ -12,8 +12,12 @@ describe "user visits admin/categories/new" do
       fill_in :category_name, with: 'category'
       click_on "Create Category"
 
+
       expect(current_path).to eq(category_path(1))
-      expect(page).to have_content('category')
+
+      within('#category-title') do
+        expect(page).to have_content('CATEGORY')
+      end
 
       blog1 = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'http://www.via-victoria.com/wp-content/uploads/2017/06/IMG_6879-1024x768.jpg')
       blog2 = Blog.create!(title: 'dogs', body: 'doggy', image: 'http://www.via-victoria.com/wp-content/uploads/2017/06/IMG_6879-1024x768.jpg')
@@ -22,8 +26,8 @@ describe "user visits admin/categories/new" do
 
       visit category_path(1)
 
-      expect(page).to have_content(blog1.title)
-      expect(page).to have_content(blog2.title)
+      expect(page).to have_content(blog1.title.titleize)
+      expect(page).to have_content(blog2.title.titleize)
     end
     it 'renders new page if all attributes not passed' do
       user = User.create!(email: 'blah@bla.com', username: "fern@gully.com", password: "password", role: 1)

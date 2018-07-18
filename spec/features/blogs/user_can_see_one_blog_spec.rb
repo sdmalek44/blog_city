@@ -7,11 +7,11 @@ describe 'when user visits /blogs/#' do
 
     visit blogs_path
 
-    click_on blog.title
+    click_on blog.title.titleize
 
     visit blog_path(blog)
 
-    expect(page).to have_content(blog.title)
+    expect(page).to have_content(blog.title.titleize)
     expect(page).to have_content(blog.created_date)
     expect(page).to have_content(blog.body)
     expect(page).to have_xpath("//img[@src='#{blog.image}']")

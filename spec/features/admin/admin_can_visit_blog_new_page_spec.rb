@@ -39,7 +39,7 @@ describe "user visits admin/blogs/new" do
       click_on "Create Blog"
 
       expect(current_path).to eq(blog_path(Blog.last))
-      expect(page).to have_content('title')
+      expect(page).to have_content('Title')
       expect(page).to have_content('body')
 
       expect(page).to have_content(cat1.name)
