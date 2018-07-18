@@ -1,18 +1,34 @@
 <section id="main-stage">
-  <article id="content">
-    <%= @category.name %>
-    <% if current_admin? %>
-    <%= button_to "Delete", admin_category_path(@category), method: :delete %>
-    <% end %>
-    <% if @blogs %>
-      <% @blogs.each do |blog| %>
-        <img src="<%= blog.image %>" class="photo">
-        <%= blog.title %>
-        <%= blog.blurb %>
+
+  <header id="title-header">
+    <h1 id="title">VIA VICTORIA</h1>
+    <h3 id="sub-title">LIFESTYLE BLOGGER</h3>
+  </header>
+
+  <section id="all-content">
+    <article id="content">
+      <div class="cat-title bottom-10">
+        <h1 class="font-30"><%= @category.name.upcase %></h1>
+        <% if current_admin? %>
+        <%= button_to "Delete", admin_category_path(@category), method: :delete, class: 'hidden-button' %>
+        <% end %>
+      </div>
+      <% if @blogs %>
+        <% @blogs.each do |blog| %>
+          <div class="blog-box">
+            <a href="<%= blog_path(blog) %>" class="fill-block"><img src="<%= blog.image %>" class="photo"></a>
+            <div class="blurb-box">
+              <%= link_to blog.title.titleize, blog_path(blog), class: 'block destyle-link'%>
+              <div class="blurb">
+                <%= blog.blurb %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </article>
-  <aside id="category-bar" class="flex-categories">
-    <%= render partial: 'nav/categories' %>
-  </aside>
+    </article>
+    <aside id="category-bar" class="flex-categories">
+      <%= render partial: 'nav/categories' %>
+    </aside>
+  </section>
 </section>

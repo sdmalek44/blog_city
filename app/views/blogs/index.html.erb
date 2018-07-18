@@ -13,9 +13,9 @@
       <div class="blog-box">
         <a href="<%= blog_path(blog) %>" class="fill-block"><img src="<%= blog.image %>" class="photo"></a>
         <div class="blurb-box">
-          <%= link_to blog.title, blog_path(blog), class: 'block destyle-link'%>
+          <%= link_to blog.title.titleize, blog_path(blog), class: 'block destyle-link'%>
           <div class="blurb">
-            heyyall<%= blog.blurb %>
+            <%= blog.blurb %>
           </div>
           <div class="category-and-date">
             <% unless blog.categories.empty? %>
