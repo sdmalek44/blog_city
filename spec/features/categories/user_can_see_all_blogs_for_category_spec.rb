@@ -15,4 +15,5 @@ describe 'when user visits /categories/#' do
     expect(page).to have_content(blog2.title.titleize)
     expect(page).to have_content(blog2.blurb)
   end
+  it 
 end
