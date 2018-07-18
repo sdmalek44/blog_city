@@ -24,11 +24,15 @@
               </div>
               <div class="category-and-date">
                 <% unless blog.categories.empty? %>
-                    <% blog.categories.each do |category| %>
+                    <% blog.categories.each_with_index do |category, index| %>
                       <%= link_to category.name, category_path(category), class: 'no-style' %>
+                      <% unless blog.categories.index(blog.categories.last) == index %>
+                        <span class="no-style">, </span>
+                      <% end %>
                     <% end %>
+                    <span class="no-style"> / </span>
                 <% end %>
-                <span class="no-style"> / <%= blog.created_date %></span>
+                <span class="no-style"><%= blog.created_date %></span>
               </div>
             </div>
           </div>
