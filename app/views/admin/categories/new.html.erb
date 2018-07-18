@@ -1,5 +1,26 @@
-<%= form_for [:admin, @category] do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.submit %>
-<% end %>
+
+<section id="main-stage">
+
+  <header id="title-header">
+    <h1 id="title">VIA VICTORIA</h1>
+    <h3 id="sub-title">LIFESTYLE BLOGGER</h3>
+  </header>
+
+  <section id="all-content">
+    <article id="content">
+      <h1 class="log-in-title font-30">Create New Category</h1>
+      <%= form_for [:admin, @category], html: {class: 'login-form'} do |f| %>
+        <div class="inner-log-form">
+
+          <h3 class="login-label"><%= f.label :name %></h3>
+          <%= f.text_field :name, class: 'login-text'%>
+
+          <%= f.submit "Create Category", class: 'comment-button login-button font-15' %>
+        </div>
+      <% end %>
+    </article>
+    <aside id="category-bar" class="flex-categories">
+      <%= render partial: 'nav/categories' %>
+    </aside>
+  </section>
+</section>
