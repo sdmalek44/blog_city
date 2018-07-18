@@ -7,10 +7,10 @@ describe 'when user visits /blogs' do
 
     visit blogs_path
 
-    expect(page).to have_content(blog1.title)
+    expect(page).to have_content(blog1.title.titleize)
     expect(page).to have_content(blog1.blurb)
     expect(page).to have_xpath("//img[@src='#{blog1.image}']")
-    expect(page).to have_content(blog2.title)
+    expect(page).to have_content(blog2.title.titleize)
     expect(page).to have_content(blog2.blurb)
   end
 end

@@ -8,11 +8,11 @@ describe 'when user visits /categories/#' do
 
     visit category_path(category)
 
-    expect(page).to have_content(category.name)
-    expect(page).to have_content(blog1.title)
+    expect(page).to have_content(category.name.upcase)
+    expect(page).to have_content(blog1.title.titleize)
     expect(page).to have_content(blog1.blurb)
     expect(page).to have_xpath("//img[@src='#{blog1.image}']")
-    expect(page).to have_content(blog2.title)
+    expect(page).to have_content(blog2.title.titleize)
     expect(page).to have_content(blog2.blurb)
   end
 end

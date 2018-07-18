@@ -22,7 +22,7 @@ describe 'visiting show page' do
     click_on "Update Blog"
 
     expect(current_path).to eq(blog_path(Blog.last))
-    expect(page).to have_content('title')
+    expect(page).to have_content('Title')
     expect(page).to have_content('body')
 
     expect(page).to have_content(category.name)
