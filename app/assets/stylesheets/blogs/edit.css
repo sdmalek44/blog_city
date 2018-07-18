@@ -1,0 +1,32 @@
+.cat-checkbox {
+  display: flex;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+}
+
+.label-checkbox {
+}
+
+
+.cat-check-box {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.inner-log-wide {
+  margin-top: 30px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+}
+
+.text-area-body {
+  height: 200px;
+}
+
+.top-marg-20 {
+  margin-top: 20px;
+}

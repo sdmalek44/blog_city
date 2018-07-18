@@ -1,10 +1,38 @@
-<%= form_for [:admin, @blog] do |f| %>
-<%= f.collection_check_boxes :categories, Category.all, :id, :name %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :body %>
-<%= f.text_area :body %>
-<%= f.label :image %>
-<%= f.text_field :image %>
-<%= f.submit %>
-<% end %>
+
+<section id="main-stage">
+
+  <header id="title-header">
+    <h1 id="title">VIA VICTORIA</h1>
+    <h3 id="sub-title">LIFESTYLE BLOGGER</h3>
+  </header>
+
+  <section id="all-content">
+    <article id="content">
+      <h1 class="log-in-title font-30">Edit Blog</h1>
+      <%= form_for [:admin, @blog], html: {class: 'login-form'} do |f| %>
+        <div class="inner-log-wide">
+          <h1 class="login-label">Category</h1>
+          <div class="cat-check-box">
+            <%= f.collection_check_boxes(:categories, Category.all, :id, :name) do |b| %>
+              <div class="cat-checkbox">
+                <%= b.label class: 'label-checkbox' %>
+                <%= b.check_box class: 'check-box' %>
+              </div>
+            <% end %>
+          </div>
+          <h3 class="login-label"><%= f.label :title %></h3>
+          <%= f.text_field :title, class: 'login-text'%>
+          <h3 class="login-label"><%= f.label :body %></h3>
+          <%= f.text_area :body, class: 'text-area-body'%>
+          <h3 class="login-label top-marg-20"><%= f.label :image %></h3>
+          <%= f.text_field :image, class: 'login-text'%>
+
+          <%= f.submit "UPDATE BLOG", class: 'comment-button login-button font-15' %>
+        </div>
+      <% end %>
+    </article>
+    <aside id="category-bar" class="flex-categories">
+      <%= render partial: 'nav/categories' %>
+    </aside>
+  </section>
+</section>

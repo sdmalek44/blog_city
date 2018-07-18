@@ -1,6 +1,7 @@
 class Admin::BlogsController < Admin::BaseController
   def new
     @blog = Blog.new
+    @category_bar = Category.all
   end
 
   def create
@@ -21,6 +22,7 @@ class Admin::BlogsController < Admin::BaseController
 
   def edit
     @blog = Blog.find(params[:id])
+    @category_bar = Category.all
   end
 
   def update

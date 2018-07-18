@@ -19,7 +19,7 @@ describe 'visiting show page' do
     fill_in :blog_body, with: 'body'
     fill_in :blog_image, with: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg'
 
-    click_on "Update Blog"
+    click_on "UPDATE BLOG"
 
     expect(current_path).to eq(blog_path(Blog.last))
     expect(page).to have_content('Title')
@@ -42,7 +42,7 @@ describe 'visiting show page' do
     fill_in :blog_body, with: 'body'
     fill_in :blog_image, with: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg'
 
-    click_on "Update Blog"
+    click_on "UPDATE BLOG"
 
     expect(current_path).to eq(admin_blog_path(blog))
   end
