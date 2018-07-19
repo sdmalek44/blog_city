@@ -20,7 +20,7 @@ describe 'when user visits /blog/#' do
       updated = 'updated comment'
 
       fill_in :comment_body, with: updated
-      click_on "Update Comment"
+      click_on "UPDATE COMMENT"
 
       expect(current_path).to eq(blog_path(blog))
       expect(page).to have_content(updated)
@@ -43,7 +43,7 @@ describe 'when user visits /blog/#' do
       updated = ''
 
       fill_in :comment_body, with: updated
-      click_on "Update Comment"
+      click_on "UPDATE COMMENT"
 
       expect(current_path).to eq(blog_default_comment_path(blog, comment1))
     end
