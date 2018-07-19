@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(229, 229, 229);
   margin-bottom: 30px;
 }
 
