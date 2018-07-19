@@ -37,7 +37,7 @@
 
                 <% @comments.each do |comment| %>
                   <div class="comment-box">
-                    <div class="bold"><%= comment.user.username %></div>
+                    <div class="bold bottom-10 top-10"><%= comment.user.username %></div>
                     <div class="bottom-10 font-13"><%= comment.body %></div>
                     <div class="no-style font-11 bottom-10"><%= comment.created_time %></div>
                     <% if (comment.user == current_user) || current_admin? %>
