@@ -4,8 +4,8 @@
 }
 
 .blog-box {
-  height: 230px;
-  border-bottom: 1px solid gray;
+  height: 190px;
+  border-bottom: 1px solid rgb(233, 233, 233);
   display: flex;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -16,7 +16,8 @@
 }
 
 .fill-block {
-  width: 60%;
+  width: 48%;
+
 }
 
 .destyle-link {
