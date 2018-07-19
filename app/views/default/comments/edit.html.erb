@@ -1,7 +1,28 @@
-<%= form_for [@blog, :default, @comment] do |f| %>
-  <%= hidden_field_tag 'comment[user_id]', @comment.user_id %>
-  <%= hidden_field_tag 'comment[blog_id]', @comment.blog_id %>
-  <%= f.label :body, "Your Comment" %>
-  <%= f.text_area :body %>
-  <%= f.submit "Update Comment"%>
-<% end %>
+
+<section id="main-stage">
+
+  <header id="title-header">
+    <h1 id="title">VIA VICTORIA</h1>
+    <h3 id="sub-title">LIFESTYLE BLOGGER</h3>
+  </header>
+
+  <section id="all-content">
+    <article id="content">
+      <h1 class="log-in-title font-30">Edit Comment</h1>
+      <%= form_for [@blog, :default, @comment], html: {class: 'login-form'} do |f| %>
+        <div class="inner-log-wide">
+          <%= hidden_field_tag 'comment[user_id]', @comment.user_id %>
+          <%= hidden_field_tag 'comment[blog_id]', @comment.blog_id %>
+
+          <h3 class="login-label"><%= f.label :body, "Your Comment" %></h3>
+          <%= f.text_area :body, class: 'text-area-body'%>
+
+          <%= f.submit "UPDATE COMMENT", class: 'comment-button login-button font-15' %>
+        </div>
+      <% end %>
+    </article>
+    <aside id="category-bar" class="flex-categories">
+      <%= render partial: 'nav/categories' %>
+    </aside>
+  </section>
+</section>
