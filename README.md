@@ -1,3 +1,5 @@
+![screen shot 2018-09-18 at 10 37 29 pm](https://user-images.githubusercontent.com/30483194/46432616-e8da7a00-c70b-11e8-890c-5118b9c47c33.png)
+  
 # Blog City
 
 Blog City was created as a personalized blog website. A blogger can log in as an admin and post articles for people to see. The admin can also label blogs with different categories so when a user goes to the site they can click on a category and be presented with all of the blogs that have that category. A blog can fall in more than one category. The website also allows users to register and leave comments on a blog. The admin has the ability to create edit or delete blogs, categories, and comments while a regular user only has the ability to edit/delete their own comment. This project gave me a chance to explore different levels of permissions given to users on a website. I gained some practice in using namespacing for admin and default user permissions. This project also allowed me hone my skills utilizing postgreSQL database table relationships. I challenged myself to not use any css framework to gain more experience using css.  
