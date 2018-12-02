@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'when user visits /blogs/#' do
   it 'can see one blog with attributes' do
     category = Category.create!(name: 'footwear')
-    blog = category.blogs.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg')
+    date = DateTime.parse("01-01-2018")
+    blog = category.blogs.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', created_at: date)
 
     visit blogs_path
 
