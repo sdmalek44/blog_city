@@ -1,8 +1,8 @@
-class BlogUpdater
+class BlogCreator
   attr_reader :blog
 
-  def initialize(blog_id, update_info, categories)
-    @blog = Blog.update(blog_id, update_info)
+  def initialize(blog_info, categories)
+    @blog = Blog.create(blog_info)
     @categories = categories
   end
 
@@ -19,6 +19,6 @@ class BlogUpdater
   end
 
   def sad_path
-    '/admin/blogs/edit'
+    '/admin/blogs/new'
   end
 end

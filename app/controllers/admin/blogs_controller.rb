@@ -1,17 +1,11 @@
 class Admin::BlogsController < Admin::BaseController
   def new
-    @blog = Blog.new
-    @category_bar = Category.all
+    @presenter = BlogFormPresenter.new
   end
 
   def create
-    @blog = Blog.create(blog_params)
-    if @blog.save
-      @blog.create_relationships(params[:blog][:categories])
-      redirect_to blog_path(@blog)
-    else
-      render '/admin/blogs/new'
-    end
+    @presenter = BlogCreator.new(blog_params, blog_categories)
+    @presenter.success? ? (redirect_to @presenter.happy_path) : (render @presenter.sad_path)
   end
 
   def destroy
