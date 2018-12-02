@@ -16,28 +16,25 @@ class Admin::BlogsController < Admin::BaseController
 
   def destroy
     Blog.destroy(params[:id])
-
     redirect_to blogs_path
   end
 
   def edit
-    @blog = Blog.find(params[:id])
-    @category_bar = Category.all
+    @presenter = BlogFormPresenter.new(params[:id])
   end
 
   def update
-    @blog = Blog.update(params[:id], blog_params)
-    if @blog.save
-      @blog.create_relationships(params[:blog][:categories])
-      redirect_to blog_path(@blog)
-    else
-      render '/admin/blogs/new'
-    end
+    @presenter = BlogUpdater.new(params[:id], blog_params, blog_categories)
+    @presenter.success? ? (redirect_to @presenter.happy_path) : (render @presenter.sad_path)
   end
 
   private
 
   def blog_params
     params.require(:blog).permit(:title, :body, :image)
+  end
+
+  def blog_categories
+    params.require(:blog).require(:categories)
   end
 end

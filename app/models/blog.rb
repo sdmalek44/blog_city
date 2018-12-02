@@ -9,9 +9,7 @@ class Blog < ApplicationRecord
   end
 
   def create_relationships(category_ids)
-    category_ids.map! {|cat_id| cat_id.to_i}
-    valid_categories = Category.where(id: category_ids)
-    valid_categories.each { |category| BlogCategory.find_or_create_by(blog_id: id, category_id: category.id) }
+    category_ids.each { |category_id| blog_categories.find_or_create_by(category_id: category_id) }
   end
 
   def blurb
