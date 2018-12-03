@@ -6,10 +6,6 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
-    @categories = @blog.categories
-    @comments = @blog.comments
-    @comment = Comment.new
-    @category_bar = Category.all
+    @presenter = BlogShowPresenter.new(params[:id])
   end
 end
