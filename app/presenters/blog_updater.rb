@@ -21,4 +21,8 @@ class BlogUpdater
   def sad_path
     '/admin/blogs/edit'
   end
+
+  def category_bar
+    Category.all
+  end
 end

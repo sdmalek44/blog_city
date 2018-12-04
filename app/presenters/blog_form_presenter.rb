@@ -5,4 +5,7 @@ class BlogFormPresenter
     @blog = Blog.find_by(id: blog_id) || Blog.new
   end
 
+  def category_bar
+    Category.all
+  end
 end
