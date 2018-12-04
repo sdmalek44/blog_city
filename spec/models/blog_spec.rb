@@ -12,7 +12,8 @@ describe Blog, type: :model do
   end
   describe 'instance methods' do
     it 'can change date to strftime' do
-      blog = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', created_at: Time.new(2015, 1, 13) )
+      date = Date.new(2015, 1, 13)
+      blog = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', created_at: date )
 
       expect(blog.created_date).to eq("January 13, 2015")
     end
