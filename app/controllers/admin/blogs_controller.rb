@@ -1,11 +1,12 @@
 class Admin::BlogsController < Admin::BaseController
+  
   def new
     @presenter = BlogFormPresenter.new
   end
 
   def create
-    @presenter = BlogCreator.new(blog_params, blog_categories)
-    @presenter.success? ? (redirect_to @presenter.happy_path) : (render @presenter.sad_path)
+    @presenter = CreateBlogPresenter.new(blog_params, blog_categories)
+    @presenter.success? ? (redirect_to @presenter.blog_path) : (render :new)
   end
 
   def destroy
@@ -18,8 +19,8 @@ class Admin::BlogsController < Admin::BaseController
   end
 
   def update
-    @presenter = BlogUpdater.new(params[:id], blog_params, blog_categories)
-    @presenter.success? ? (redirect_to @presenter.happy_path) : (render @presenter.sad_path)
+    @presenter = UpdateBlogPresenter.new(params[:id], blog_params, blog_categories)
+    @presenter.success? ? (redirect_to @presenter.blog_path) : (render :edit)
   end
 
   private
@@ -31,4 +32,5 @@ class Admin::BlogsController < Admin::BaseController
   def blog_categories
     params.require(:blog).require(:categories)
   end
+
 end
