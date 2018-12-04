@@ -1,8 +1,7 @@
 class BlogsController < ApplicationController
 
   def index
-    @blogs = Blog.all.includes(:categories)
-    @category_bar = Category.all
+    @presenter = BlogIndexPresenter.new
   end
 
   def show
