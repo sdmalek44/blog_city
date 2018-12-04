@@ -11,13 +11,8 @@ class Default::CommentsController < Default::BaseController
   end
 
   def update
-    @blog = Blog.find(params[:blog_id])
-    @comment = Comment.update(params[:id], comment_params)
-    if @comment.save
-      redirect_to blog_path(@blog)
-    else
-      render :edit
-    end
+    @presenter = UpdateCommentPresenter.new(params[:id], comment_params)
+    @presenter.comment_updated? ? (redirect_to @presenter.blog_path) : (render :edit)
   end
 
   def destroy
