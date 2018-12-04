@@ -7,4 +7,5 @@ class BlogsController < ApplicationController
   def show
     @presenter = BlogShowPresenter.new(params[:id])
   end
+  
 end

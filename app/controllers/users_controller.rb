@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
-    @category_bar = Category.all
+    @presenter = NewUserPresenter.new
   end
 
   def create

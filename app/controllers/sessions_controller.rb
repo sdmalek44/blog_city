@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    @category_bar = Category.all
+    @presenter = NewSessionPresenter.new
   end
 
   def create
