@@ -7,8 +7,7 @@ class Default::CommentsController < Default::BaseController
   end
 
   def edit
-    @blog = Blog.find(params[:blog_id])
-    @comment = Comment.find(params[:id])
+    @presenter = EditCommentPresenter.new(params[:blog_id], params[:id])
   end
 
   def update

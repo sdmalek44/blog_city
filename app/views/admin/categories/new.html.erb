@@ -9,7 +9,7 @@
   <section id="all-content">
     <article id="content">
       <h1 class="log-in-title font-30">Create New Category</h1>
-      <%= form_for [:admin, @category], html: {class: 'login-form'} do |f| %>
+      <%= form_for [:admin, @presenter.category], html: {class: 'login-form'} do |f| %>
         <div class="inner-log-form">
 
           <h3 class="login-label"><%= f.label :name %></h3>

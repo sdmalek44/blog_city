@@ -1,7 +1,6 @@
 class Admin::CategoriesController < Admin::BaseController
   def new
-    @category = Category.new
-    @category_bar = Category.all
+    @presenter = NewCategoryPresenter.new
   end
 
   def create
