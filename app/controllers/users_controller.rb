@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    if @user.save
-      session[:user_id] = @user.id
+    @presenter = CreateUserPresenter.new(user_params)
+    if @presenter.user_created?
+      session[:user_id] = @presenter.user_id
       redirect_to blogs_path
     else
       render :new
