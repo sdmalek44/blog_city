@@ -7,5 +7,5 @@ class BlogIndexPresenter
   def category_bar
     Category.all
   end
-  
+
 end

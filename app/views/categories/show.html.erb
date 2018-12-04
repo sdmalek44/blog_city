@@ -8,13 +8,12 @@
   <section id="all-content">
     <article id="content">
       <div class="cat-title bottom-10">
-        <h1 class="font-30" id="category-title"><%= @category.name.upcase %></h1>
+        <h1 class="font-30" id="category-title"><%= @presenter.category.name.upcase %></h1>
         <% if current_admin? %>
-        <%= button_to "Delete", admin_category_path(@category), method: :delete, class: 'hidden-button' %>
+        <%= button_to "Delete", admin_category_path(@presenter.category), method: :delete, class: 'hidden-button' %>
         <% end %>
       </div>
-      <% if @blogs %>
-        <% @blogs.descend.each do |blog| %>
+        <% @presenter.blogs.each do |blog| %>
           <div class="blog-box">
             <a href="<%= blog_path(blog) %>" class="fill-block"><img src="<%= blog.image %>" class="photo"></a>
             <div class="blurb-box">
@@ -37,7 +36,6 @@
             </div>
           </div>
         <% end %>
-      <% end %>
     </article>
     <aside id="category-bar" class="flex-categories">
       <%= render partial: 'nav/categories' %>
