@@ -6,13 +6,11 @@ class BlogShowPresenter
   end
 
   def categories
-    return @blog.categories if @blog
-    []
+    @blog.categories
   end
 
   def comments
-    return @blog.comments if @blog
-    []
+    @blog.comments
   end
 
   def comment
