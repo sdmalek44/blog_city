@@ -24,4 +24,5 @@ class SessionsController < ApplicationController
   def authentication_params
     params.permit(:username, :password)
   end
+  
 end

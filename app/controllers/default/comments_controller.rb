@@ -26,4 +26,5 @@ class Default::CommentsController < Default::BaseController
   def comment_params
     params.require(:comment).permit(:user_id, :blog_id, :body)
   end
+  
 end

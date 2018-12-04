@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def new
     @presenter = NewUserPresenter.new
   end
@@ -18,4 +19,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:password, :email, :username, :role)
   end
+
 end

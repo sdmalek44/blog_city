@@ -1,4 +1,5 @@
-class BlogCreator
+class CreateBlogPresenter
+
   attr_reader :blog
 
   def initialize(blog_info, categories)
@@ -18,11 +19,8 @@ class BlogCreator
     Category.all
   end
 
-  def happy_path
+  def blog_path
     "/blogs/#{@blog.id}"
   end
 
-  def sad_path
-    '/admin/blogs/new'
-  end
 end

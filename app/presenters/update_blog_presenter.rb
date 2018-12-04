@@ -1,4 +1,5 @@
-class BlogUpdater
+class UpdateBlogPresenter
+
   attr_reader :blog
 
   def initialize(blog_id, update_info, categories)
@@ -14,15 +15,12 @@ class BlogUpdater
     @blog.create_relationships(@categories)
   end
 
-  def happy_path
+  def blog_path
     "/blogs/#{@blog.id}"
-  end
-
-  def sad_path
-    '/admin/blogs/edit'
   end
 
   def category_bar
     Category.all
   end
+
 end
