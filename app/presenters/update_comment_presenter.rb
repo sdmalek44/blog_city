@@ -1,4 +1,6 @@
 class UpdateCommentPresenter
+  attr_reader :blog,
+              :comment
 
   def initialize(comment_id, comment_params)
     @blog = Blog.find_by(id: comment_params[:blog_id])

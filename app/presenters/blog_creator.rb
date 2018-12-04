@@ -14,6 +14,10 @@ class BlogCreator
     @blog.create_relationships(@categories)
   end
 
+  def category_bar
+    Category.all
+  end
+
   def happy_path
     "/blogs/#{@blog.id}"
   end

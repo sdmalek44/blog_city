@@ -4,9 +4,9 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def create
-    @category = Category.create(category_params)
-    if @category.save
-      redirect_to category_path(@category)
+    @presenter = CreateCategoryPresenter.new(category_params)
+    if @presenter.category_created?
+      redirect_to @presenter.category_path
     else
       render :new
     end

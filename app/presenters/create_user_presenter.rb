@@ -1,5 +1,6 @@
 class CreateUserPresenter
-
+  attr_reader :user
+  
   def initialize(user_params)
     @user = User.create(user_params)
   end
@@ -15,4 +16,6 @@ class CreateUserPresenter
   def category_bar
     Category.all
   end
+
+
 end
