@@ -12,10 +12,10 @@ describe Blog, type: :model do
   end
   describe 'instance methods' do
     it 'can change date to strftime' do
-      time = Time.now
-      blog = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', created_at: time )
+      date = Date.new(2015, 1, 13)
+      blog = Blog.create!(title: 'shoes', body: 'lookatdeeshoes', image: 'https://i.ytimg.com/vi/AZ2ZPmEfjvU/maxresdefault.jpg', created_at: date )
 
-      expect(blog.created_date).to eq(time.strftime('%B %e, %Y'))
+      expect(blog.created_date).to eq("January 13, 2015")
     end
     it 'can create a blurb from body' do
 body =
