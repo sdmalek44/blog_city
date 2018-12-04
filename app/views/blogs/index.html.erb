@@ -11,7 +11,7 @@
       <% if current_admin? %>
         <%= button_to "Create New Blog", new_admin_blog_path, method: 'get', class: 'hidden-button' %>
       <% end %>
-      <% @blogs.descend.each do |blog| %>
+      <% @presenter.blogs.each do |blog| %>
       <div class="blog-box">
         <a href="<%= blog_path(blog) %>" class="fill-block"><img src="<%= blog.image %>" class="photo"></a>
         <div class="blurb-box">

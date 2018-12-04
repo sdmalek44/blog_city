@@ -9,7 +9,7 @@
   <section id="all-content">
     <article id="content">
       <h1 class="log-in-title font-30">Please Sign Up</h1>
-      <%= form_for @user, html: {class: 'login-form'} do |f| %>
+      <%= form_for @presenter.user, html: {class: 'login-form'} do |f| %>
         <div class="inner-log-form">
 
           <h3 class="login-label"><%= f.label :username %></h3>

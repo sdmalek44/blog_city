@@ -9,51 +9,45 @@
     <article id="content">
       <section class="flex-column">
       <div class="space-tb font-15">
-        <% if @categories %>
-          <% @categories.each do |category| %>
-            <%= link_to category.name, category_path(category), class: 'no-style space-after'%>
-          <% end %>
+        <% @presenter.categories.each do |category| %>
+          <%= link_to category.name, category_path(category), class: 'no-style space-after'%>
         <% end %>
       </div>
 
-        <h1 class="font-35"><%= @blog.title.titleize %></h1>
-        <p class="no-style font-15 bottom-10"><%= @blog.created_date %><p>
+        <h1 class="font-35"><%= @presenter.blog.title.titleize %></h1>
+        <p class="no-style font-15 bottom-10"><%= @presenter.blog.created_date %><p>
         </section>
-        <img src="<%= @blog.image %>" class="show-photo">
+        <img src="<%= @presenter.blog.image %>" class="show-photo">
         <section class="flex-column">
 
-          <div class="body-box"><%= @blog.body %></div>
+          <div class="body-box"><%= @presenter.blog.body %></div>
 
           <% if current_admin? %>
           <div class="flex-center">
-            <%= button_to "Edit", edit_admin_blog_path(@blog), method: :get, class: 'hidden-button' %>
-            <%= button_to "Delete", admin_blog_path(@blog), method: :delete, class: 'hidden-button' %>
+            <%= button_to "Edit", edit_admin_blog_path(@presenter.blog), method: :get, class: 'hidden-button' %>
+            <%= button_to "Delete", admin_blog_path(@presenter.blog), method: :delete, class: 'hidden-button' %>
           </div>
           <% end %>
 
-            <% if @comments %>
-              <h1 class="underline"><%= @comments.length %> comments</h1>
-              <div class="comments-box">
+          <h1 class="underline"><%= @presenter.comments.length %> comments</h1>
+          <div class="comments-box">
 
-                <% @comments.each do |comment| %>
-                  <div class="comment-box">
-                    <div class="bold bottom-10 top-10"><%= comment.user.username %></div>
-                    <div class="bottom-10 font-13"><%= comment.body %></div>
-                    <div class="no-style font-11 bottom-10"><%= comment.created_time %></div>
-                    <% if (comment.user == current_user) || current_admin? %>
-                    <div class="flex-start">
-                      <%= button_to "Edit Comment", edit_blog_default_comment_path(@blog, comment), method: :get, class: 'hidden-button' %>
-                      <%= button_to "Delete Comment", blog_default_comment_path(@blog, comment), method: :delete, class: 'hidden-button' %>
-                    </div>
-                    <% end %>
-                  </div>
+            <% @presenter.comments.each do |comment| %>
+              <div class="comment-box">
+                <div class="bold bottom-10 top-10"><%= comment.user.username %></div>
+                <div class="bottom-10 font-13"><%= comment.body %></div>
+                <div class="no-style font-11 bottom-10"><%= comment.created_time %></div>
+                <% if (comment.user == current_user) || current_admin? %>
+                <div class="flex-start">
+                  <%= button_to "Edit Comment", edit_blog_default_comment_path(@presenter.blog, comment), method: :get, class: 'hidden-button' %>
+                  <%= button_to "Delete Comment", blog_default_comment_path(@presenter.blog, comment), method: :delete, class: 'hidden-button' %>
+                </div>
                 <% end %>
               </div>
             <% end %>
+          </div>
         </section>
-
         <%= render partial: 'comments/form' %>
-
     </article>
     <aside id="category-bar" class="flex-categories">
       <%= render partial: 'nav/categories' %>

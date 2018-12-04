@@ -9,10 +9,10 @@
   <section id="all-content">
     <article id="content">
       <h1 class="log-in-title font-30">Edit Comment</h1>
-      <%= form_for [@blog, :default, @comment], html: {class: 'login-form'} do |f| %>
+      <%= form_for [@presenter.blog, :default, @presenter.comment], html: {class: 'login-form'} do |f| %>
         <div class="inner-log-wide">
-          <%= hidden_field_tag 'comment[user_id]', @comment.user_id %>
-          <%= hidden_field_tag 'comment[blog_id]', @comment.blog_id %>
+          <%= hidden_field_tag 'comment[user_id]', @presenter.comment.user_id %>
+          <%= hidden_field_tag 'comment[blog_id]', @presenter.comment.blog_id %>
 
           <h3 class="login-label"><%= f.label :body, "Your Comment" %></h3>
           <%= f.text_area :body, class: 'text-area-body'%>
