@@ -1,5 +1,5 @@
 class Admin::BlogsController < Admin::BaseController
-  
+
   def new
     @presenter = BlogFormPresenter.new
   end

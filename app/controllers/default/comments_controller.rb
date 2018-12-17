@@ -16,9 +16,8 @@ class Default::CommentsController < Default::BaseController
   end
 
   def destroy
-    @blog = Blog.find(params[:blog_id])
-    Comment.destroy(params[:id])
-    redirect_to blog_path(@blog)
+    current_user.comments.destroy(params[:id])
+    redirect_to blog_path(params[:blog_id])
   end
 
   private
@@ -26,5 +25,5 @@ class Default::CommentsController < Default::BaseController
   def comment_params
     params.require(:comment).permit(:user_id, :blog_id, :body)
   end
-  
+
 end
